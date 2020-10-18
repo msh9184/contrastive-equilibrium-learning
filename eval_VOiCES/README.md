@@ -10,13 +10,15 @@ The Voices Obscured in Complex Environmental Settings (VOiCES) corpus contains s
 
 
 ### Evaluation
-First, please download `dev-enroll.lst`, `dev-trial-keys.lst` and move them to a directory `./list`. And then make `trials_voices.txt` by running `python make_form.py`.
+First, please download `dev-enroll.lst`, `dev-trial-keys.lst` from [here](https://iqtlabs.github.io/voices/downloads/) and move them to a directory `./list`. And then make `trials_voices.txt` by running `python make_form.py`.
 ```bash
 cd list
 python make_form.py
 ```
-Evaluation example on VOiCES. (In our setting)
+You can also download a `trials_voices.txt` file from [here](https://drive.google.com/file/d/1uCTIrDIl13hBDfQXYT4WITOlDYB-TgfW/view?usp=sharing) (672MB).
 
+Evaluation example on VOiCES as follows:
 ```bash
 python evaluate.py --initial_model ../save/a-cont/model/model000000001.model --save_path save/a-cont/ --save_filename model000000001 --test_list ./list/trials_voices.txt --test_path /home/shmun/DB/VOiCES/Development_Data/
 ```
+where `/home/shmun/DB/VOiCES/Development_Data/` is the path to VOiCES development set and `save/a-cont` is a directory to save results.

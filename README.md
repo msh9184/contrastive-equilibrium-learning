@@ -22,7 +22,7 @@ id00012/21Uxsk56VDQ/00002.wav
 id00012/21Uxsk56VDQ/00003.wav
 ```
 The train list for VoxCeleb2 can be download from [here](https://drive.google.com/file/d/1K9qpPNqhH4Ib3rqz6sFBUbrDLXGc8Tg7/view?usp=sharing) and the test list for VoxCeleb1 from [here](https://drive.google.com/file/d/1Lfb0bJAbE2zSCXfhLhJUQxDgro_mHRiq/view?usp=sharing).
-The list for training also can be created by runing `python makelist_post.py` in a directory `./make_list`.
+The list for training also can be created by runing `python makelist_post.py` in a directory `./list`.
 
 Furthermore, you can download the [MUSAN](https://www.openslr.org/17/) noise corpus.
 After downloading and extracting the files, you can split the audio files into short segments for faster random access as the following command:
