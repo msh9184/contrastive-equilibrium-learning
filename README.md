@@ -64,7 +64,7 @@ Evaluation example with the original test set of VoxCeleb1.
 ```bash
 python trainSpeakerNet.py --eval --initial_model save/a-cont/model/model000000001.model --test_list list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
-Code for VOiCES evaluation is [here]().
+Code for VOiCES evaluation is [here](https://github.com/msh9184/contrastive-equilibrium-learning/tree/master/eval_VOiCES).
 
 
 ### Pre-trained models
