@@ -29,7 +29,7 @@ After downloading and extracting the files, you can split the audio files into s
 ```bash
 python process_musan.py /home/shmun/DB/MUSAN/
 ```
-where `/home/shmun/DB/MUSAN/` is the path to the MUSAN corpus.
+where `/home/shmun/DB/MUSAN/` is our path to the MUSAN corpus.
 
 You can also follow the instructions on the following pages for download and the data preparation of training and augmentation.
 + [Training](https://github.com/clovaai/voxceleb_trainer): VoxCeleb1&2 datasets
@@ -38,10 +38,10 @@ You can also follow the instructions on the following pages for download and the
 
 ### Objective functions
 ```bash
+Uniformity (uniform)
 Prototypical (proto)
 Angular Prototypical (angleproto)
 Angular Contrastive (anglecontrast)
-Uniformity (uniform)
 ```
 
 
@@ -54,11 +54,11 @@ TDNN
 
 
 ### Training and evaluation using CEL
-Training example with the development set of unlabeled VoxCeleb2.
+Training example with the development set of VoxCeleb2 in an unsupervised manner.
 ```bash
-python trainSpeakerNet.py --max_frames 180 --batch_size 200 --sim_loss anglecontrast --unif_loss uniform --augment_anchor --augment_type 3 --save_path save/a-cont --train_list list/train_vox2.txt --test_list list/test_vox1.txt --train_path /home/shmun/DB/VoxCeleb/VoxCeleb2/dev/wav/ --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/ --musan_path /home/shmun/DB/MUSAN/musan_split/
+python trainSpeakerNet.py --max_frames 180 --batch_size 200 --unif_loss uniform --sim_loss anglecontrast --augment_anchor --augment_type 3 --save_path save/a-cont --train_list list/train_vox2.txt --test_list list/test_vox1.txt --train_path /home/shmun/DB/VoxCeleb/VoxCeleb2/dev/wav/ --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/ --musan_path /home/shmun/DB/MUSAN/musan_split/
 ```
-where `/home/shmun/DB/VoxCeleb/VoxCeleb2/dev/wav/`, `/home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/`, `/home/shmun/DB/MUSAN/musan_split/` are the paths to VoxCeleb2 development set, VoxCeleb1 test set, processed MUSAN corpus, respectively. And `save/a-cont` is a directory to save results.
+where `/home/shmun/DB/VoxCeleb/VoxCeleb2/dev/wav/`, `/home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/`, `/home/shmun/DB/MUSAN/musan_split/` are our paths to VoxCeleb2 development set, VoxCeleb1 test set, processed MUSAN corpus, respectively. And `save/a-cont` is a directory to save results.
 
 Evaluation example with the original test set of VoxCeleb1.
 ```bash
@@ -68,14 +68,14 @@ Code for VOiCES evaluation is [here](https://github.com/msh9184/contrastive-equi
 
 
 ### Pre-trained models
-We share the pre-trained models reported in [this paper](). Please move the downloaded pre-trained models to the directory `./save`.
+We share the pre-trained models reported in [this paper](). Move the downloaded pre-trained models to the directory `./save`.
 
-+ `A-Prot + Unif` `EER: 8.01%`: [Download]()
++ `Unif + A-Prot` `EER: 8.01%`: [Download](https://drive.google.com/file/d/1j1gFZ52a10UT6EpT_HqahbEbq2zp97cT/view?usp=sharing)
 ```bash
-python trainSpeakerNet.py --eval --initial_model save/pre-trained_a-prot.model --test_list list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
+python trainSpeakerNet.py --eval --initial_model save/pre-trained_unspv_unif-a-prot.model --test_list list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
 
-+ `A-Cont + Unif` `EER: 8.05%`: [Download]()
++ `Unif + A-Cont` `EER: 8.05%`: [Download](https://drive.google.com/file/d/1RZdAU6efbRSmUsIwqW0Q_mpEwdAbm7xY/view?usp=sharing)
 ```bash
-python trainSpeakerNet.py --eval --initial_model save/pre-trained_a-cont.model --test_list list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
+python trainSpeakerNet.py --eval --initial_model save/pre-trained_unspv_unif-a-cont.model --test_list list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```

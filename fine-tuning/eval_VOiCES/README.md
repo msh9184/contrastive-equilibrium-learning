@@ -20,6 +20,7 @@ You can also download a `trials_voices.txt` file from [here](https://drive.googl
 Evaluation example on VOiCES as follows:
 
 ```bash
-python evaluate.py --initial_model ../save/a-prot-unif_a-cont/model/model000000001.model --save_path save/a-prot-unif_a-cont/ --save_filename model000000001 --test_list ./list/trials_voices.txt --test_path /home/shmun/DB/VOiCES/Development_Data/
+python evaluate.py --initial_model ../save/unif-a-prot_a-cont/model/model000000001.model --save_path save/unif-a-prot_a-cont/ --save_filename model000000001 --test_list ./list/trials_voices.txt --test_path /home/shmun/DB/VOiCES/Development_Data/
 ```
-where `/home/shmun/DB/VOiCES/Development_Data/` is the path to VOiCES development set and `save/a-prot-unif_a-cont` is a directory to save results.
+where `/home/shmun/DB/VOiCES/Development_Data/` is our path to VOiCES development set and `save/unif-a-prot_a-cont` is a directory to save results.
+

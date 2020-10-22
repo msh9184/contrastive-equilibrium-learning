@@ -16,13 +16,18 @@ from loss.uniform import Uniformity
 
 class SpeakerNet(nn.Module):
 
-    def __init__(self, lr = 0.0001, model="alexnet50", nOut = 512, encoder_type = 'SAP', normalize = True, sim_loss='anglecontrast', unif_loss='uniform', lambda_s=1, lambda_u=1, t=2, sample_type='PoN', **kwargs):
+    def __init__(self, lr = 0.0001, model="alexnet50", nOut = 512, encoder_type = 'SAP', normalize = True, unif_loss='uniform', sim_loss='anglecontrast', lambda_u=1, lambda_s=1, t=2, sample_type='PoN', **kwargs):
         super(SpeakerNet, self).__init__();
 
         argsdict = {'nOut': nOut, 'encoder_type':encoder_type}
 
         SpeakerNetModel = importlib.import_module('models.'+model).__getattribute__(model)
         self.__S__ = SpeakerNetModel(**argsdict).cuda();
+
+        if unif_loss == 'uniform':
+            self.__U__ = Uniformity(uniform_t=t, sample_type=sample_type).cuda()
+        else:
+            raise ValueError('Undefined loss.')
 
         if sim_loss == 'angleproto':
             self.__L__ = AngleProtoLoss().cuda()
@@ -39,20 +44,15 @@ class SpeakerNet(nn.Module):
         else:
             raise ValueError('Undefined loss.')
 
-        if unif_loss == 'uniform':
-            self.__U__ = Uniformity(uniform_t=t, sample_type=sample_type).cuda()
-        else:
-            raise ValueError('Undefined loss.')
-
-        self.lambda_s = lambda_s
         self.lambda_u = lambda_u
+        self.lambda_s = lambda_s
 
-        self.__optimizer__ = torch.optim.Adam(list(self.__S__.parameters()) + list(self.__L__.parameters()) + list(self.__U__.parameters()), lr = lr);
+        self.__optimizer__ = torch.optim.Adam(list(self.__S__.parameters()) + list(self.__U__.parameters()) + list(self.__L__.parameters()), lr = lr);
 
         self.torchfb        = transforms.MelSpectrogram(sample_rate=16000, n_fft=512, win_length=400, hop_length=160, f_min=0.0, f_max=8000, pad=0, n_mels=40).cuda();
         self.instancenorm   = nn.InstanceNorm1d(40).cuda();
 
-        print('Initialised network with nOut %d encoder_type %s, lambda_s = %.2f, lambda_u = %.2f, t = %.2f'%(nOut,encoder_type, self.lambda_s, self.lambda_u, t))
+        print('Initialised network with nOut %d encoder_type %s, lambda_u = %.2f, lambda_s = %.2f, t = %.2f'%(nOut,encoder_type, self.lambda_u, self.lambda_s, t))
 
     ## ===== ===== ===== ===== ===== ===== ===== =====
     ## Train network
@@ -90,10 +90,10 @@ class SpeakerNet(nn.Module):
 
             feat = torch.stack(feat,dim=1).squeeze()
 
-            nloss_s, prec1 = self.__L__.forward(feat,None)
             nloss_u, _ = self.__U__.forward(feat,None)
+            nloss_s, prec1 = self.__L__.forward(feat,None)
 
-            nloss = self.lambda_s * nloss_s + self.lambda_u * nloss_u
+            nloss = self.lambda_u * nloss_u + self.lambda_s * nloss_s
 
             loss    += nloss.detach().cpu();
             top1    += prec1

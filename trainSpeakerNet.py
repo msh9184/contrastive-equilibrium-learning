@@ -23,8 +23,8 @@ parser.add_argument('--nDataLoaderThread', type=int, default=20, help='Number of
 ## Training details
 parser.add_argument('--test_interval', type=int, default=5, help='Test and save every [test_interval] epochs');
 parser.add_argument('--max_epoch',      type=int, default=500, help='Maximum number of epochs');
-parser.add_argument('--sim_loss', type=str, default="anglecontrast",    help='Loss function');
-parser.add_argument('--unif_loss', type=str, default="uniform",    help='Loss function2');
+parser.add_argument('--unif_loss', type=str, default="uniform",    help='Uniformity loss function');
+parser.add_argument('--sim_loss', type=str, default="anglecontrast",    help='Similarity loss function');
 parser.add_argument('--augment_anchor', dest='augment_anchor', action='store_true', help='Augment anchor')
 parser.add_argument('--augment_type',   type=int, default=3, help='0: no augment, 1: noise only, 2: noise or RIR, 3: noise and RIR');
 
