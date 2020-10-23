@@ -75,7 +75,7 @@ python trainSpeakerNet.py --eval --initial_model ./save/pre-trained_vox2_unif-a-
 ```bash
 python trainSpeakerNet.py --eval --initial_model ./save/pre-trained_vox1-vox2_unif-a-cont_ge2e.model --test_list ./list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
-Code for VOiCES evaluation is [here](https://drive.google.com/file/d/1CemTZ-rdNXHe_9aTkZ_KBYT1pSbyFfXl/view?usp=sharing).
+Code for VOiCES evaluation is [here](https://github.com/msh9184/contrastive-equilibrium-learning/tree/master/fine-tuning/eval_VOiCES).
 
 
 ### Citation
