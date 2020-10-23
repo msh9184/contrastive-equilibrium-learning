@@ -1,8 +1,9 @@
 # Contrastive equilibrium learning
 
+<img src="./img/cel.jpg" width="650">
 
 ## Unsupervised learning framwork
-This repository provides a implementation of the Contrastive Equilibrium Learning (CEL) for unsupervised learning.
+This repository provides a implementation of the Contrastive Equilibrium Learning (CEL) for unsupervised learning of [this paper](https://arxiv.org/abs/2010.11433).
 The code is developed on the [baseline framework](https://github.com/joonson/voxceleb_unsupervised) for the VoxSRC 2020 Challenge.
 
 
@@ -19,7 +20,9 @@ The train list should contain only the file path, one line per utterance, as fol
 ```bash
 id00012/21Uxsk56VDQ/00001.wav
 id00012/21Uxsk56VDQ/00002.wav
-id00012/21Uxsk56VDQ/00003.wav
+...
+id09272/u7VNkYraCw0/00026.wav
+id09272/u7VNkYraCw0/00027.wav
 ```
 The train list for VoxCeleb2 can be download from [here](https://drive.google.com/file/d/1K9qpPNqhH4Ib3rqz6sFBUbrDLXGc8Tg7/view?usp=sharing) and the test list for VoxCeleb1 from [here](https://drive.google.com/file/d/1Lfb0bJAbE2zSCXfhLhJUQxDgro_mHRiq/view?usp=sharing).
 The list for training also can be created by runing `python makelist_post.py` in a directory `./list`.
@@ -68,7 +71,7 @@ Code for VOiCES evaluation is [here](https://github.com/msh9184/contrastive-equi
 
 
 ### Pre-trained models
-We share the pre-trained models reported in [this paper](). Move the downloaded pre-trained models to the directory `./save`.
+We share the pre-trained models reported in [this paper](https://arxiv.org/abs/2010.11433). Move the downloaded pre-trained models to the directory `./save`.
 
 + `Unif + A-Prot` `EER: 8.01%`: [Download](https://drive.google.com/file/d/1j1gFZ52a10UT6EpT_HqahbEbq2zp97cT/view?usp=sharing)
 ```bash

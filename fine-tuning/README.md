@@ -1,8 +1,8 @@
 # Contrastive equilibrium learning
 
-
 ## Fine-tuning framwork
-This fine-tuning framework is modified on the [voxceleb_trainer](https://github.com/joonson/voxceleb_unsupervised) provided by [this paper]().
+This repository provides fine-tuning implementation of [this paper](https://arxiv.org/abs/2010.11433).
+This fine-tuning framework is modified on the [voxceleb_trainer](https://github.com/joonson/voxceleb_unsupervised).
 
 
 ### Dataset for fine-tuning
@@ -46,7 +46,7 @@ TDNN
 ### Fine-tuning and evaluation.
 Fine-tuning command line example with the development set of VoxCeleb1.
 
-The fine-tuning example using `A-Contrast` loss function with the parameters pre-trained via CEL using `Uniformity` and `A-Prototypical` loss (i.e., `Unif + A-Prot -> A-Cont` as notation in [this paper]()) as follows:
+The fine-tuning example using `A-Contrast` loss function with the parameters pre-trained via CEL using `Uniformity` and `A-Prototypical` loss (i.e., `Unif + A-Prot -> A-Cont` as notation in [this paper](https://arxiv.org/abs/2010.11433)) as follows:
 ```bash
 python fine-tuneSpeakerNet.py --initial_model ../save/pre-trained_a-prot.model --max_frames 300 --batch_size 250 --nSpeakers 1211 --trainfunc anglecontrast --save_path ./save/unif-a-prot_a-cont --train_list ./list/train_vox1.txt --test_list ./list/test_vox1.txt --train_path /home/shmun/DB/VoxCeleb/VoxCeleb1/dev/wav/ --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
@@ -59,7 +59,7 @@ python fine-tuneSpeakerNet.py --eval --initial_model ./save/unif-a-prot_a-cont/m
 
 
 ### Trained models
-You can download the models reported in [this paper]().
+You can download the models reported in [this paper](https://arxiv.org/abs/2010.11433).
 
 +  `VoxCeleb1` `Unif + A-Prot -> A-Prot` `EER: 2.33%`: [Download](https://drive.google.com/file/d/1TwCQ24KNVkNypgKg-1LF65oKqaINom3i/view?usp=sharing)
 ```bash
