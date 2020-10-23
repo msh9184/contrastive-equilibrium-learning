@@ -24,3 +24,13 @@ python evaluate.py --initial_model ../save/unif-a-prot_a-cont/model/model0000000
 ```
 where `/home/shmun/DB/VOiCES/Development_Data/` is our path to VOiCES development set and `save/unif-a-prot_a-cont` is a directory to save results.
 
+### Citation
+If you make use of this repository, please consider citing:
+```
+@article{mun2020cel,
+  title={Unsupervised representation learning for speaker recognition via contrastive equilibrium learning},
+  author={Mun, Sung Hwan and Kang, Woo Hyun and Han, Min Hyun and Kim, Nam Soo},
+  journal={arXiv preprint arXiv:2010.11433},
+  year={2020}
+}
+```

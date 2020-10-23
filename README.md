@@ -82,3 +82,14 @@ python trainSpeakerNet.py --eval --initial_model save/pre-trained_unspv_unif-a-p
 ```bash
 python trainSpeakerNet.py --eval --initial_model save/pre-trained_unspv_unif-a-cont.model --test_list list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
+
+### Citation
+If you make use of this repository, please consider citing:
+```
+@article{mun2020cel,
+  title={Unsupervised representation learning for speaker recognition via contrastive equilibrium learning},
+  author={Mun, Sung Hwan and Kang, Woo Hyun and Han, Min Hyun and Kim, Nam Soo},
+  journal={arXiv preprint arXiv:2010.11433},
+  year={2020}
+}
+```

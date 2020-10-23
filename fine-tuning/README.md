@@ -77,3 +77,14 @@ python trainSpeakerNet.py --eval --initial_model ./save/pre-trained_vox1-vox2_un
 ```
 Code for VOiCES evaluation is [here](https://drive.google.com/file/d/1CemTZ-rdNXHe_9aTkZ_KBYT1pSbyFfXl/view?usp=sharing).
 
+
+### Citation
+If you make use of this repository, please consider citing:
+```
+@article{mun2020cel,
+  title={Unsupervised representation learning for speaker recognition via contrastive equilibrium learning},
+  author={Mun, Sung Hwan and Kang, Woo Hyun and Han, Min Hyun and Kim, Nam Soo},
+  journal={arXiv preprint arXiv:2010.11433},
+  year={2020}
+}
+```
