@@ -59,13 +59,13 @@ TDNN
 ### Training and evaluation using CEL
 Training example with the development set of VoxCeleb2 in an unsupervised manner.
 ```bash
-python trainSpeakerNet.py --max_frames 180 --batch_size 200 --unif_loss uniform --sim_loss anglecontrast --augment_anchor --augment_type 3 --save_path save/a-cont --train_list list/train_vox2.txt --test_list list/test_vox1.txt --train_path /home/shmun/DB/VoxCeleb/VoxCeleb2/dev/wav/ --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/ --musan_path /home/shmun/DB/MUSAN/musan_split/
+python trainSpeakerNet.py --max_frames 180 --batch_size 200 --unif_loss uniform --sim_loss anglecontrast --augment_anchor --augment_type 3 --save_path save/unif-a-cont --train_list list/train_vox2.txt --test_list list/test_vox1.txt --train_path /home/shmun/DB/VoxCeleb/VoxCeleb2/dev/wav/ --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/ --musan_path /home/shmun/DB/MUSAN/musan_split/
 ```
-where `/home/shmun/DB/VoxCeleb/VoxCeleb2/dev/wav/`, `/home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/`, `/home/shmun/DB/MUSAN/musan_split/` are our paths to VoxCeleb2 development set, VoxCeleb1 test set, processed MUSAN corpus, respectively. And `save/a-cont` is a directory to save results.
+where `/home/shmun/DB/VoxCeleb/VoxCeleb2/dev/wav/`, `/home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/`, `/home/shmun/DB/MUSAN/musan_split/` are our paths to VoxCeleb2 development set, VoxCeleb1 test set, processed MUSAN corpus, respectively. And `save/unif-a-cont` is a directory to save results.
 
 Evaluation example with the original test set of VoxCeleb1.
 ```bash
-python trainSpeakerNet.py --eval --initial_model save/a-cont/model/model000000001.model --test_list list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
+python trainSpeakerNet.py --eval --initial_model save/unif-a-cont/model/model000000001.model --test_list list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
 Code for VOiCES evaluation is [here](https://github.com/msh9184/contrastive-equilibrium-learning/tree/master/eval_VOiCES).
 
