@@ -22,11 +22,10 @@ class TDNN(nn.Module):
         self.bn1 = nn.BatchNorm2d(num_filters[0])
         self.relu = nn.ReLU(inplace=True)
 
-#        self.layer1 = self._make_layer(block, num_filters[0], layers[0])
-#        self.layer2 = self._make_layer(block, num_filters[1], layers[1], stride=(2, 2))
-#        self.layer3 = self._make_layer(block, num_filters[2], layers[2], stride=(2, 2))
-#        self.layer4 = self._make_layer(block, num_filters[3], layers[3], stride=(1, 1))
-        self.layer1=n..Conv1d(
+        self.layer1 = self._make_layer(block, num_filters[0], layers[0])
+        self.layer2 = self._make_layer(block, num_filters[1], layers[1], stride=(2, 2))
+        self.layer3 = self._make_layer(block, num_filters[2], layers[2], stride=(2, 2))
+        self.layer4 = self._make_layer(block, num_filters[3], layers[3], stride=(1, 1))
 
         self.avgpool = nn.AvgPool2d((5, 1), stride=1)
 
