@@ -63,17 +63,17 @@ You can download the models reported in [this paper](https://arxiv.org/abs/2010.
 
 +  `VoxCeleb1` `Unif + A-Prot -> A-Prot` `EER: 2.33%`: [Download](https://drive.google.com/file/d/1TwCQ24KNVkNypgKg-1LF65oKqaINom3i/view?usp=sharing)
 ```bash
-python trainSpeakerNet.py --eval --initial_model ./save/pre-trained_vox1_unif-a-prot_a-prot.model --test_list ./list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
+python fine-tuneSpeakerNet.py --eval --initial_model ./save/pre-trained_vox1_unif-a-prot_a-prot.model --test_list ./list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
 
 + `VoxCeleb2` `Unif + A-Cont -> ArcFace` `EER: 2.05%`: [Download](https://drive.google.com/file/d/1Pq9UW9h3sGv-Hwj_FcCKrkD8bjVHmXnn/view?usp=sharing)
 ```bash
-python trainSpeakerNet.py --eval --initial_model ./save/pre-trained_vox2_unif-a-cont_arcface.model --test_list ./list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
+python fine-tuneSpeakerNet.py --eval --initial_model ./save/pre-trained_vox2_unif-a-cont_arcface.model --test_list ./list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
 
 + `VoxCeleb1&2` `Unif + A-Cont -> GE2E` `EER: 1.81%`: [Download](https://drive.google.com/file/d/11Cyfb7do7sx7bycqpv1UDIj8SbbnDk47/view?usp=sharing)
 ```bash
-python trainSpeakerNet.py --eval --initial_model ./save/pre-trained_vox1-vox2_unif-a-cont_ge2e.model --test_list ./list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
+python fine-tuneSpeakerNet.py --eval --initial_model ./save/pre-trained_vox1-vox2_unif-a-cont_ge2e.model --test_list ./list/test_vox1.txt --test_path /home/shmun/DB/VoxCeleb/VoxCeleb1/test/wav/
 ```
 Code for VOiCES evaluation is [here](https://github.com/msh9184/contrastive-equilibrium-learning/tree/master/fine-tuning/eval_VOiCES).
 
